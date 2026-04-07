@@ -1,3 +1,5 @@
+import java.util.Map;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Set;
@@ -121,5 +123,26 @@ public class TrainConsistApp {
         // Display formation
         System.out.println("Final Train Formation:");
         System.out.println(formation);
+
+
+        // ================= UC6 =================
+        System.out.println("\n===============================");
+        System.out.println("UC6 - Map Bogie to Capacity");
+        System.out.println("===============================\n");
+
+        // Create HashMap
+        Map<String, Integer> capacityMap = new HashMap<>();
+
+        // ADD bogie capacities
+        capacityMap.put("Sleeper", 72);
+        capacityMap.put("AC Chair", 50);
+        capacityMap.put("First Class", 24);
+
+        // Display all entries
+        System.out.println("Bogie Capacity Details:");
+
+        for (Map.Entry<String, Integer> entry : capacityMap.entrySet()) {
+            System.out.println(entry.getKey() + " → " + entry.getValue() + " seats");
+        }
     }
 }
