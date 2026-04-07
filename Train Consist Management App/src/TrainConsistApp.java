@@ -13,5 +13,7 @@ public class TrainConsistApp {
 
         // Display initial bogie count
         System.out.println("Initial bogie count: " + trainConsist.size());
+        System.out.println("=== Train Consist Management App ===");
+        System.out.println("UC1: Initialization Complete");
     }
 }
