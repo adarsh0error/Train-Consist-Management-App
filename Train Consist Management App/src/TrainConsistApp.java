@@ -1,3 +1,4 @@
+import java.util.stream.Collectors;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.HashMap;
@@ -204,5 +205,40 @@ public class TrainConsistApp {
         for (Bogie b : filteredBogies) {
             System.out.println(b.name + " → " + b.capacity);
         }
+        // ================= UC9 =================
+        System.out.println("\n===============================");
+        System.out.println("UC9 - Group Bogies by Type");
+        System.out.println("===============================\n");
+
+// Create list of bogies
+        List<Bogie> bogiesForGrouping = new ArrayList<>();
+
+        bogiesForGrouping.add(new Bogie("Sleeper", 72));
+        bogiesForGrouping.add(new Bogie("AC Chair", 56));
+        bogiesForGrouping.add(new Bogie("First Class", 24));
+        bogiesForGrouping.add(new Bogie("Sleeper", 70));
+        bogiesForGrouping.add(new Bogie("AC Chair", 60));
+
+// Display
+        System.out.println("All Bogies:");
+        for (Bogie b : bogiesForGrouping) {
+            System.out.println(b.name + " → " + b.capacity);
+        }
+
+// Grouping
+        Map<String, List<Bogie>> groupedBogies = bogiesForGrouping.stream()
+                .collect(Collectors.groupingBy(b -> b.name));
+
+// Display grouped result
+        System.out.println("\nGrouped Bogies:");
+
+        for (Map.Entry<String, List<Bogie>> entry : groupedBogies.entrySet()) {
+            System.out.println("\nBogie Type: " + entry.getKey());
+            for (Bogie b : entry.getValue()) {
+                System.out.println("Capacity → " + b.capacity);
+            }
+        }
+
+        System.out.println("\nUC9 grouping completed...");
     }
 }
