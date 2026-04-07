@@ -1,3 +1,4 @@
+import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.Set;
 import java.util.HashSet;
@@ -99,5 +100,26 @@ public class TrainConsistApp {
 
         System.out.println("\nFinal Train Consist:");
         System.out.println(orderedConsist);
+
+        // ================= UC5 =================
+        System.out.println("\n===============================");
+        System.out.println("UC5 - Preserve Insertion Order of Bogies");
+        System.out.println("===============================\n");
+
+        // Create LinkedHashSet
+        Set<String> formation = new LinkedHashSet<>();
+
+        // ADD bogies
+        formation.add("Engine");
+        formation.add("Sleeper");
+        formation.add("Cargo");
+        formation.add("Guard");
+
+        // Add duplicate intentionally
+        formation.add("Sleeper");  // should be ignored
+
+        // Display formation
+        System.out.println("Final Train Formation:");
+        System.out.println(formation);
     }
 }
