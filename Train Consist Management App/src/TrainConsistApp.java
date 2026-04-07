@@ -240,5 +240,32 @@ public class TrainConsistApp {
         }
 
         System.out.println("\nUC9 grouping completed...");
+
+        // ================= UC10 =================
+        System.out.println("\n===============================");
+        System.out.println("UC10 - Count Total Seats in Train");
+        System.out.println("===============================\n");
+
+        // Create list of bogies
+        List<Bogie> bogiesForReduction = new ArrayList<>();
+
+        bogiesForReduction.add(new Bogie("Sleeper", 72));
+        bogiesForReduction.add(new Bogie("AC Chair", 56));
+        bogiesForReduction.add(new Bogie("First Class", 24));
+        bogiesForReduction.add(new Bogie("Sleeper", 70));
+
+        // Display bogies
+        System.out.println("Bogies in Train:");
+        for (Bogie b : bogiesForReduction) {
+            System.out.println(b.name + " → " + b.capacity);
+        }
+
+        // AGGREGATION using map + reduce
+        int totalSeats = bogiesForReduction.stream()
+                .map(b -> b.capacity)          // extract capacity
+                .reduce(0, Integer::sum);     // sum all values
+
+        // Display total
+        System.out.println("\nTotal Seating Capacity: " + totalSeats);
     }
 }
