@@ -1,3 +1,5 @@
+import java.util.Set;
+import java.util.HashSet;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,5 +51,27 @@ public class TrainConsistApp {
         System.out.println(passengerBogies);
 
         System.out.println("\nUC2 operations completed successfully...");
+
+        // ================= UC3 =================
+        System.out.println("\n===============================");
+        System.out.println("UC3 - Track Unique Bogie IDs");
+        System.out.println("===============================\n");
+
+        // Create HashSet for unique bogie IDs
+        Set<String> bogieIDs = new HashSet<>();
+
+        // ADD IDs (including duplicates)
+        bogieIDs.add("BG101");
+        bogieIDs.add("BG102");
+        bogieIDs.add("BG103");
+        bogieIDs.add("BG104");
+
+        // Duplicate entries (should be ignored)
+        bogieIDs.add("BG101");
+        bogieIDs.add("BG102");
+
+        // Display unique bogie IDs
+        System.out.println("Unique Bogie IDs:");
+        System.out.println(bogieIDs);
     }
 }
