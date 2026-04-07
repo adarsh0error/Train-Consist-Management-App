@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Set;
 import java.util.HashSet;
 import java.util.ArrayList;
@@ -73,5 +74,30 @@ public class TrainConsistApp {
         // Display unique bogie IDs
         System.out.println("Unique Bogie IDs:");
         System.out.println(bogieIDs);
+
+        // ================= UC4 =================
+        System.out.println("\n===============================");
+        System.out.println("UC4 - Maintain Ordered Bogie Consist");
+        System.out.println("===============================\n");
+
+        // Create LinkedList for train consist
+        LinkedList<String> orderedConsist = new LinkedList<>();
+
+        orderedConsist.add("Engine");
+        orderedConsist.add("Sleeper");
+        orderedConsist.add("AC");
+        orderedConsist.add("Cargo");
+        orderedConsist.add("Guard");
+
+        orderedConsist.add(2, "Pantry Car");
+
+        System.out.println("After adding bogies and Pantry Car:");
+        System.out.println(orderedConsist);
+
+        orderedConsist.removeFirst();
+        orderedConsist.removeLast();
+
+        System.out.println("\nFinal Train Consist:");
+        System.out.println(orderedConsist);
     }
 }
